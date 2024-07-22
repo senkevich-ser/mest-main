@@ -30,6 +30,7 @@
       <button aria-label="Добавить" type="button" class="lead__button opacity"></button>
     </section>
     <section class="foto-grid" aria-label="Фото красивых мест">
+      <template class="card">
       <div class="foto-grid__card">
         <img src="./images/karachaevsk.jpg" alt="Фото церкви в Карачаево-Черкессии" class="foto-grid__item" />
         <div class="foto-grid__name">
@@ -37,41 +38,7 @@
           <button aria-label="Поставить лайк" type="button" class="foto-grid__name-heart"></button>
         </div>
       </div>
-      <div class="foto-grid__card">
-        <img src="./images/elbrus.jpg" alt="Фото Эльбруса издалека" class="foto-grid__item" />
-        <div class="foto-grid__name">
-          <h2 class="foto-grid__name-title title-cutter">Гора Эльбрус</h2>
-          <button type="button" class="foto-grid__name-heart"></button>
-        </div>
-      </div>
-      <div class="foto-grid__card">
-        <img src="./images/dombay.jpg" alt="Фото гор" class="foto-grid__item" />
-        <div class="foto-grid__name">
-          <h2 class="foto-grid__name-title title-cutter">Домбай</h2>
-          <button type="button" class="foto-grid__name-heart"></button>
-        </div>
-      </div>
-      <div class="foto-grid__card">
-        <img src="./images/karachaevsk.jpg" alt="Фото церкви в Карачаево-Черкессии" class="foto-grid__item" />
-        <div class="foto-grid__name">
-          <h2 class="foto-grid__name-title title-cutter">Карачаевск</h2>
-          <button type="button" class="foto-grid__name-heart"></button>
-        </div>
-      </div>
-      <div class="foto-grid__card">
-        <img src="./images/elbrus.jpg" alt="Фото Эльбруса издалека" class="foto-grid__item" />
-        <div class="foto-grid__name">
-          <h2 class="foto-grid__name-title title-cutter">Гора Эльбрус</h2>
-          <button type="button" class="foto-grid__name-heart"></button>
-        </div>
-      </div>
-      <div class="foto-grid__card">
-        <img src="./images/dombay.jpg" alt="Фото гор" class="foto-grid__item" />
-        <div class="foto-grid__name">
-          <h2 class="foto-grid__name-title title-cutter">Домбай</h2>
-          <button type="button" class="foto-grid__name-heart"></button>
-        </div>
-      </div>
+    </template>
     </section>
   </main>
   <footer class="footer wrapper">
@@ -91,7 +58,7 @@
       </form>
     </div>
   </div>
-  <script src="./scripts/script.js"></script>
+  <script type="module" src="./scripts/script.js"></script>
 </body>
 
 </html>

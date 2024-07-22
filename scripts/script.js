@@ -8,6 +8,21 @@ const inputNameTitle = formDescription.nameTitle;
 const inputDescriptionTitle = formDescription.descriptionTitle;
 const popupDescription = document.querySelector(".popup");
 const popupName = popupDescription.querySelector(".popup__title");
+import { initialCards } from './initialCards.js';
+const cardContainer = document.querySelector(".foto-grid");
+const cardTemplate = document.querySelector(".card").content;
+
+
+initialCards.forEach(el => {
+const card = cardTemplate.querySelector('.foto-grid__card').cloneNode(true);
+const cardLink = card.querySelector(".foto-grid__item");
+cardLink.src=el.link
+const cardName = card.querySelector(".foto-grid__name-title");
+cardName.textContent=el.name
+cardContainer.append(card); 
+});
+
+
 
 
 function openProfilePopup() {
@@ -30,6 +45,13 @@ formDescription.reset();
 }
 
 function handleFormProfileSubmit(evt) {
+  evt.preventDefault();
+  nameTitle.textContent = inputNameTitle.value;
+  descriptionTitle.textContent = inputDescriptionTitle.value;
+  closePopup();
+}
+
+function handleFormAddCardSubmit(evt) {
   evt.preventDefault();
   nameTitle.textContent = inputNameTitle.value;
   descriptionTitle.textContent = inputDescriptionTitle.value;
