@@ -2,7 +2,7 @@ const nameTitle = document.querySelector(".lead__title");
 const descriptionTitle = document.querySelector(".lead__subtitle");
 const changeDescriptionBtn = document.querySelector(".lead__pencil");
 const addCardBtn = document.querySelector(".lead__button");
-const closePopupBtn = document.querySelector(".popup__close");
+const closePopupBtn = document.querySelector(".popup__close-cross");
 const formDescription = document.querySelector(".popup__inputs");
 const inputNameTitle = formDescription.nameTitle;
 const inputDescriptionTitle = formDescription.descriptionTitle;
@@ -10,20 +10,22 @@ const popupDescription = document.querySelector(".popup");
 const popupName = popupDescription.querySelector(".popup__title");
 import { initialCards } from './initialCards.js';
 const cardContainer = document.querySelector(".foto-grid");
-const cardTemplate = document.querySelector(".card").content;
+const cardTemplate = document.querySelector(".foto-grid__template").content;
 
 
-initialCards.forEach(el => {
-const card = cardTemplate.querySelector('.foto-grid__card').cloneNode(true);
-const cardLink = card.querySelector(".foto-grid__item");
-cardLink.src=el.link
-const cardName = card.querySelector(".foto-grid__name-title");
-cardName.textContent=el.name
-cardContainer.append(card); 
+initialCards.forEach(el => { 
+cardContainer.append(addCard(el)); 
 });
 
 
-
+function addCard(dataCard){
+  const card = cardTemplate.querySelector('.foto-grid__card').cloneNode(true);
+  const cardLink = card.querySelector(".foto-grid__item");
+  cardLink.src=dataCard.link
+  const cardName = card.querySelector(".foto-grid__name-title");
+  cardName.textContent=dataCard.name;
+  return card;
+}
 
 function openProfilePopup() {
   inputNameTitle.value = nameTitle.textContent;
@@ -45,16 +47,17 @@ formDescription.reset();
 }
 
 function handleFormProfileSubmit(evt) {
-  evt.preventDefault();
   nameTitle.textContent = inputNameTitle.value;
   descriptionTitle.textContent = inputDescriptionTitle.value;
   closePopup();
 }
 
 function handleFormAddCardSubmit(evt) {
-  evt.preventDefault();
-  nameTitle.textContent = inputNameTitle.value;
-  descriptionTitle.textContent = inputDescriptionTitle.value;
+  const newCardData = {
+    name:inputNameTitle.value,
+    link:inputDescriptionTitle.value
+  }
+  cardContainer.append(addCard(newCardData));
   closePopup();
 }
 
@@ -63,4 +66,11 @@ function handleFormAddCardSubmit(evt) {
 changeDescriptionBtn.addEventListener("click", openProfilePopup);
 addCardBtn.addEventListener("click", openAddCardPopup);
 closePopupBtn.addEventListener("click", closePopup);
-formDescription.addEventListener("submit", handleFormProfileSubmit);
+formDescription.addEventListener("submit", (evt)=>{
+  evt.preventDefault();
+if(evt.target.previousElementSibling.textContent==='Новое место'){
+  handleFormAddCardSubmit()
+} else{
+  handleFormProfileSubmit()
+}
+});
