@@ -12,6 +12,7 @@ import { initialCards } from './initialCards.js';
 const cardContainer = document.querySelector(".foto-grid");
 const cardTemplate = document.querySelector(".foto-grid__template").content;
 
+console.log(formDescription)
 
 initialCards.forEach(el => { 
 cardContainer.append(addCard(el)); 
