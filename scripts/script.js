@@ -31,6 +31,9 @@ function addCard(dataCard){
   cardImage.addEventListener('click',()=>{
     openfotoOpenPopup(dataCard)
     })
+    card.querySelector(".foto-grid__name-heart").addEventListener('click',(evt)=>{
+      evt.target.classList.toggle('foto-grid__name-heart_black');
+    });
   return card;
 }
 
