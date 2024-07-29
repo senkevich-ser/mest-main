@@ -49,10 +49,10 @@
     <div class="popup__container">
       <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="form-explorers" class="popup__inputs">
-        <input name="nameTitle" type="text" placeholder="Имя Фамилия " value=""
-          class="popup__input-text popup__input-text_type_name" />
-        <input name="descriptionTitle" type="text" placeholder="Род деятельности " value=""
+      <form name="form1" class="popup__inputs">
+        <input name="nameTitle"  placeholder="Имя Фамилия " value=""
+          class="popup__input-text popup__input-text_type_name"  minlength="3" maxlength="20"/>
+        <input name="descriptionTitle"  placeholder="Род деятельности " value=""
           class="popup__input-text popup__input-text_type_explorer" />
         <button aria-label="Сохранить изменения в форме" type="submit"
           class="popup__submit-btn popup__submit-btn_action_add">

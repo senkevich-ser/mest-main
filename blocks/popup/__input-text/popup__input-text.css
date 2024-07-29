@@ -2,12 +2,25 @@
   width: 358px;
   height: 40px;
   border: none;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  /*border-bottom: 1px solid rgb(0, 0, 0, 0.2);*/
   color: #000000;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
 }
+.popup__input-text:valid{
+  border: 1px solid green; /* зелёная - для корректных */
+  border-radius: 3px;
+} 
+
+
+.popup__input-text:invalid {
+  border: 1px solid red; /* красная рамка для некорректных данных */
+  border-radius: 3px;
+} 
+
+
+ 
 @media (max-width: 570px) {
   .popup__input-text {
     width: 290px;

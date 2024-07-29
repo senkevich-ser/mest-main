@@ -3,15 +3,16 @@ const descriptionTitle = document.querySelector(".lead__subtitle");
 const changeDescriptionBtn = document.querySelector(".lead__pencil");
 const addCardBtn = document.querySelector(".lead__button");
 const closePopupBtn = document.querySelector(".popup__close-cross");
-const formDescription = document.querySelector(".popup__inputs");
-const inputNameTitle = formDescription.nameTitle;
-const inputDescriptionTitle = formDescription.descriptionTitle;
+const form1 = document.forms.form1;
+const inputNameTitle = form1.elements.nameTitle;
+const inputDescriptionTitle = form1.elements.descriptionTitle;
 const popupDescription = document.querySelector(".popup");
 const popupName = popupDescription.querySelector(".popup__title");
 import { initialCards } from "./initialCards.js";
 const cardContainer = document.querySelector(".foto-grid");
 const cardTemplate = document.querySelector(".foto-grid__template").content;
 const fotoOpenPopup = document.querySelector(".foto-open");
+
 
 cardContainer.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("foto-grid__urn"))
@@ -41,14 +42,18 @@ function addCard(dataCard) {
 
 function openProfilePopup() {
   inputNameTitle.placeholder = nameTitle.textContent;
+  inputNameTitle.type ='text';
   inputDescriptionTitle.placeholder = descriptionTitle.textContent;
+  inputDescriptionTitle.type ='text';
   popupDescription.classList.add("popup_opened");
   popupName.textContent = "Редактировать профиль";
 }
 
 function openAddCardPopup() {
   inputNameTitle.placeholder = "Название";
+  inputNameTitle.type ='text';
   inputDescriptionTitle.placeholder = "Ссылка на картинку";
+  inputDescriptionTitle.type ='url';
   popupDescription.classList.add("popup_opened");
   popupName.textContent = "Новое место";
 }
@@ -61,7 +66,7 @@ function openfotoOpenPopup(cardData) {
 
 function closePopup() {
   popupDescription.classList.remove("popup_opened");
-  formDescription.reset();
+  form1.reset();
 }
 
 function closeFotoPopup() {
@@ -89,7 +94,7 @@ closePopupBtn.addEventListener("click", closePopup);
 fotoOpenPopup
   .querySelector(".foto-open__cross")
   .addEventListener("click", closeFotoPopup);
-formDescription.addEventListener("submit", (evt) => {
+form1.addEventListener("submit", (evt) => {
   evt.preventDefault();
   if (evt.target.previousElementSibling.textContent === "Новое место") {
     handleFormAddCardSubmit();
