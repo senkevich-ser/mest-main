@@ -43,8 +43,12 @@ function addCard(dataCard) {
 function openProfilePopup() {
   inputNameTitle.placeholder = nameTitle.textContent;
   inputNameTitle.type ='text';
+  inputNameTitle.minlength=2;
+  inputNameTitle.maxlength=40;
   inputDescriptionTitle.placeholder = descriptionTitle.textContent;
   inputDescriptionTitle.type ='text';
+  inputDescriptionTitle.minlength="2"
+  inputDescriptionTitle.maxlength="200"
   popupDescription.classList.add("popup_opened");
   popupName.textContent = "Редактировать профиль";
 }
@@ -52,6 +56,8 @@ function openProfilePopup() {
 function openAddCardPopup() {
   inputNameTitle.placeholder = "Название";
   inputNameTitle.type ='text';
+  inputNameTitle.minlength='2';
+  inputNameTitle.maxlength='30';
   inputDescriptionTitle.placeholder = "Ссылка на картинку";
   inputDescriptionTitle.type ='url';
   popupDescription.classList.add("popup_opened");

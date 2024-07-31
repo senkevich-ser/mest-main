@@ -49,11 +49,13 @@
     <div class="popup__container">
       <button aria-label="Закрыть попап" type="button" class="popup__close-cross opacity"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="form1" class="popup__inputs">
-        <input name="nameTitle"  placeholder="Имя Фамилия " value=""
-          class="popup__input-text popup__input-text_type_name"  minlength="3" maxlength="20"/>
-        <input name="descriptionTitle"  placeholder="Род деятельности " value=""
-          class="popup__input-text popup__input-text_type_explorer" />
+      <form name="form1" class="popup__inputs" novalidate>
+        <input name="nameTitle"  id='name' placeholder="Имя Фамилия " value=""
+          class="popup__input-text popup__input-text_type_name" minlength="" maxlength=""/>
+          <span class="input name_type_error"></span>
+        <input name="descriptionTitle"  id='description' placeholder="Род деятельности " value=""
+          class="popup__input-text popup__input-text_type_explorer" minlength="" maxlength=""/>
+          <span class="input description_type_error"></span>
         <button aria-label="Сохранить изменения в форме" type="submit"
           class="popup__submit-btn popup__submit-btn_action_add">
           Сохранить
@@ -68,6 +70,7 @@
       <h2  class="foto-open__name">Новое место</h2>
     </div>
   </div>
+  <script type='module' src="./scripts/validate.js"></script>
   <script type='module' src="./scripts/script.js"></script>
 </body>
 
