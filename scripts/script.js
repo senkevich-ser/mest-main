@@ -12,6 +12,7 @@ import { initialCards } from "./initialCards.js";
 const cardContainer = document.querySelector(".foto-grid");
 const cardTemplate = document.querySelector(".foto-grid__template").content;
 const fotoOpenPopup = document.querySelector(".foto-open");
+const submitBtn = document.querySelector(".popup__submit-btn");
 
 
 cardContainer.addEventListener("click", (evt) => {
@@ -51,6 +52,9 @@ function openProfilePopup() {
   inputDescriptionTitle.maxlength="200"
   popupDescription.classList.add("popup_opened");
   popupName.textContent = "Редактировать профиль";
+  submitBtn.disabled = 'true';
+  submitBtn.classList.add('popup__submit-btn_disabled');
+
 }
 
 function openAddCardPopup() {
@@ -73,6 +77,8 @@ function openfotoOpenPopup(cardData) {
 function closePopup() {
   popupDescription.classList.remove("popup_opened");
   form1.reset();
+  inputNameTitle.nextElementSibling.textContent='';
+  inputDescriptionTitle.nextElementSibling.textContent='';
 }
 
 function closeFotoPopup() {
